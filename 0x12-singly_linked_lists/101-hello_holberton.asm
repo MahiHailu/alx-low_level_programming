@@ -1,9 +1,14 @@
-global   main
-	  extern    printf
+section   .text
+	global main
 main:
-	  mov   edi, format
-	  xor   eax, eax
-	  call  printf
-	  mov   eax, 0
-	  ret
-format: db 'Hello, Holberton\n',0
+	mov       rax, 1
+	mov       rdi, 1
+	mov       rsi, msg
+	mov       rdx, 17
+	syscall
+	mov       rax, 60
+	xor       rdi, rdi
+	syscall
+
+	section   .data
+msg:	db        "Hello, Holberton",0
